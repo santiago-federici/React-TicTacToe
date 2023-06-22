@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app-main {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: grid;
+    place-content: center;
+    place-items: center;
+
+    text-align: center;
+
+    background: rgb(43, 43, 43);
+}
+
+.app-main > h1{
+    margin-bottom: 2rem;
+}
+
+.squares-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: .5rem;
+}
+
+.square{
+    width: 7rem;    
+    height: 7rem;    
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+
+    border: 1px solid #fff;
+}
+
+.turns-container{
+    display: flex;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.is-selected{
+    border: none;
+    background-color: #a1106a;
+}
+
+
+.reset-game{
+    margin-top: 2rem;
+    border: none;
+
+    background: #a1106a;
+
+    padding: 1rem 2rem;
+}
+
+.reset-game:hover{
+    background: #a1106996;
+    color: #ffffff96;
+}
+
+.modal-overlay{
+    width: 100dvw;
+    height: 100dvh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+
+}
+
+.modal-overlay{
+    background: rgba(49, 49, 49, .8);
+}
+
+.modal-content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5rem 10rem;
+    background: rgb(43, 43, 43);
+    
+    box-shadow: 0 0 20px 8px rgba(0, 0, 0,.4);
+}
