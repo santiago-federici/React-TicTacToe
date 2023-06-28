@@ -1,21 +1,23 @@
 import { Square } from "./Square"
 
-export function Board({board, updateBoard}) {
+export function Board({ board, updateBoard, boardClassName }) {
 
-    return(
-            <div className='squares-container'>
-                {
-                    board.map((square, index) => {
-                        return(
-                            <Square 
+    const boardclassName = boardClassName;
+
+    return (
+        <div className={boardClassName}>
+            {
+                board.map((square, index) => {
+                    return (
+                        <Square
                             key={index}
                             index={index}
                             updateBoard={updateBoard}>
-                                {square}
-                            </Square>
-                        )
-                    })
-                }
-            </div>
+                            {square}
+                        </Square>
+                    )
+                })
+            }
+        </div>
     )
 }

@@ -1,0 +1,50 @@
+.tictactoe-container{
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.tictactoe-container > * + *{
+    margin-top: 2rem;
+}
+
+.squares-container-tictactoe{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+    gap: .5rem;
+}
+
+.modal-overlay{
+    width: 100dvw;
+    height: 100dvh;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.modal-overlay{
+    background: rgba(49, 49, 49, .8);
+}
+
+.modal-content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--clr-surface);
+
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+
+    width: min(70%, 30rem);
+    height: fit-content;
+    padding: 2rem 0 2rem 0;
+    box-shadow: 0 0 20px 8px rgba(0, 0, 0,.4);
+}

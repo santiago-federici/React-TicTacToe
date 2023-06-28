@@ -1,0 +1,14 @@
+.connect-container{
+    display: grid;
+}
+
+.connect-container > * + *{
+    margin-top: 2rem;
+}
+
+.square-container-connect{
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(6, auto);
+    gap: .5rem;
+}
