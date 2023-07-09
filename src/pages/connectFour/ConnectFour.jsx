@@ -13,19 +13,42 @@ export const ConnectFour = () => {
 
     const [board, setBoard] = useState(Array(42).fill(null))
     const [turn, setTurn] = useState(TURNS.x)
+
+
+
+    //This is for the local storage
+    
+    // const [board, setBoard] = useState( () => {
+        //     const boardFromStorage = window.localStorage.getItem('boardConnect')
+        // 	if(boardFromStorage) return JSON.parse(boardFromStorage)
+        //     Array(42).fill(null)
+        // })
+        // const [turn, setTurn] = useState(() => {
+    //     const turnFromStorage = window.localStorage.getItem('turnConnect')
+    //     if(turnFromStorage) return turnFromStorage
+    //     return TURNS.x
+    // })
+
     const [winner, setWinner] = useState(false)
     const [modal, setModal] = useState(false)
-
+    
     function updateBoard(index){
-
+        
         if(board[index] || winner) return
-
+        
         const newBoard = [...board]
         newBoard[index] = turn
         setBoard(newBoard)
 
         const newTurn = turn === TURNS.x ? TURNS.o : TURNS.x
         setTurn(newTurn)
+        
+        //This is for the local storage
+        
+        // saveToStorage({
+		// 	boardConnect: newBoard,
+		// 	turnConnect: newTurn
+		// })
 
         const newWinner = checkWinnerConnect(newBoard)
 
