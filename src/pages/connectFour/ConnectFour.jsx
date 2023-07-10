@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Square } from '../../components/Square'
 import { TURNS } from '../../constants'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Board } from '../../components/Board'
 import { checkWinnerConnect } from '../../logic/Logic'
 
@@ -29,22 +29,43 @@ export const ConnectFour = () => {
     //     return TURNS.x
     // })
 
+    
+    
     const [winner, setWinner] = useState(false)
     const [modal, setModal] = useState(false)
     
+    useEffect(() => {
+        board[35] = false
+        board[36] = false
+        board[37] = false
+        board[38] = false
+        board[39] = false
+        board[40] = false
+        board[41] = false
+    }, [/* I need something to use here. If I use winner, there is a bug with the second turn: the first "x" disappears... */]);
+
     function updateBoard(index){
+
         
         if(board[index] || winner) return
         
         const newBoard = [...board]
-        newBoard[index] = turn
-        setBoard(newBoard)
+
+        if(newBoard[index] == false){
+            newBoard[index] = turn
+            setBoard(newBoard)
+        } else if(newBoard[index] != null || newBoard[index + 7]){
+            newBoard[index] = turn
+            setBoard(newBoard)
+        } else{
+            return
+        }
 
         const newTurn = turn === TURNS.x ? TURNS.o : TURNS.x
         setTurn(newTurn)
         
-        //This is for the local storage
         
+        //This is for the local storage. It breaks doe to the local storage of the Tic Tac Toe. So I need a way to have "two" separate local storages for each game.
         // saveToStorage({
 		// 	boardConnect: newBoard,
 		// 	turnConnect: newTurn
